@@ -1,0 +1,34 @@
+*** Settings ***
+Library         OperatingSystem
+Library         String
+
+*** Test Cases ***
+test reserve file
+    ${filename}  Set Variable  log.txt
+    Create File  ${filename}  test  UTF-8
+    Reserve File  ${filename}  ${filename}-1
+    [Teardown]  Remove File  ${filename}-1
+
+test reserve file - test failed
+    ${filename}  Set Variable  log.txt
+    Create File  ${filename}  test  UTF-8
+    FAIL
+    [Teardown]  Teardown - Test Reserve File - Test Failed
+
+*** Keywords ***
+Reserve File
+    [Arguments]  ${srcFile}  ${destFileName}
+    ${newDestFileName}  Replace String  ${destFileName}  ${SPACE}  _
+    ${destPath}  Catenate  SEPARATOR=  ${OUTPUT DIR}${/}  ${newDestFileName}
+    Copy File  ${srcFile}  ${destPath}
+    ${link}  Set Variable  <a target="_blank" href="${newDestFileName}">${destFileName}</a>
+    log  ${link}  HTML
+
+Reserve File When Test Failed
+    [Arguments]  ${srcFile}  ${destFileName}
+    Run Keyword If Test Failed  Reserve File  ${srcFile}  ${destFileName}
+
+Teardown - Test Reserve File - Test Failed
+    Reserve File When Test Failed  ${filename}  ${filename}-2
+    Remove File  ${filename}-2
+

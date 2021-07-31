@@ -1,0 +1,1836 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="RIDE" /> 
+<meta name="rf-template" content="False" /> 
+<style type="text/css">
+html {
+  font-family: Arial,Helvetica,sans-serif;
+  background-color: white;
+  color: black;
+}
+table {
+  border-collapse: collapse;
+  empty-cells: show;
+  margin: 1em 0em;
+  border: 1px solid black;
+}
+th, td {
+  border: 1px solid black;
+  padding: 0.1em 0.2em;
+  height: 1.5em;
+  width: 12em;
+}
+th {
+  background-color: rgb(192, 192, 192);
+  color: black;
+  height: 1.7em;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+td.name {
+  background-color: rgb(240, 240, 240);
+  letter-spacing: 0.1em;
+}
+td.name, th.name {
+  width: 10em;
+}
+</style>
+<title>commonResource</title>
+</head>
+<body>
+<h1>commonResource</h1>
+<table id="settings" border="1">
+<tr>
+<th class="name">Setting</th>
+<th colspan="4">Value</th>
+</tr>
+<tr>
+<td class="name">Library</td>
+<td>OperatingSystem</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name">Library</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name">Resource</td>
+<td>CommonUtil.html</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name">Resource</td>
+<td>PlatformUtil.html</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+<table id="variables" border="1">
+<tr>
+<th class="name">Variable</th>
+<th colspan="4">Value</th>
+</tr>
+<tr>
+<td class="name">${common_folder}</td>
+<td>.${/}common${/}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name">${scripts_folder}</td>
+<td>${common_folder}scripts${/}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name">${deleteProc}</td>
+<td>${scripts_folder}deleteProc.</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+<table id="testcases" border="1"></table>
+<table id="keywords" border="1">
+<tr>
+<th class="name">Keyword</th>
+<th>Action</th>
+<th colspan="3">Arguments</th>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Get MBName">Get MBName</a></td>
+<td>${filepath}</td>
+<td>Set Variable</td>
+<td>../multiboot.properties</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${filestr}</td>
+<td>Get File</td>
+<td>${filepath}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${mbline}</td>
+<td>Get Lines Containing String</td>
+<td>${filestr}</td>
+<td>drbl.client.mbname=</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${mb_name}</td>
+<td>Fetch From Right</td>
+<td>${mbline}</td>
+<td>=</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${mb_name}</td>
+<td>Replace String</td>
+<td>${mb_name}</td>
+<td>+</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${EMPTY}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${mb_name}</td>
+<td>Replace String</td>
+<td>${mb_name}</td>
+<td>-</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${EMPTY}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>[Return]</td>
+<td>${mb_name}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_GetBatchExtension">GetBatchExtension</a></td>
+<td>[Arguments]</td>
+<td>${win_ext}=${EMPTY}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${ext}</td>
+<td>Set Variable If</td>
+<td>'%{OS_NAME}'=='linux'</td>
+<td>sh</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>'%{OS_NAME}'=='windows' and '${win_ext}'=='${EMPTY}'</td>
+<td>bat</td>
+<td>'%{OS_NAME}'=='windows' and '${win_ext}'!='${EMPTY}'</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${win_ext}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>[Return]</td>
+<td>${ext}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_ChmodBatch">ChmodBatch</a></td>
+<td>[Arguments]</td>
+<td>${batch_file}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Run Keyword If</td>
+<td>'%{OS_NAME}'=='linux'</td>
+<td>Run</td>
+<td>chmod +x ${batch_file}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Set SSM_HOME">Set SSM_HOME</a></td>
+<td>${result}</td>
+<td>Is Variable Declared</td>
+<td>SSM_HOME</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Run Keyword If</td>
+<td>'${result}'!='FALSE'</td>
+<td>Set Global Variable</td>
+<td>${INSTALLDIR}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>%{SSM_HOME}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Check Service Start for Linux">Check Service Start for Linux</a></td>
+<td>[Arguments]</td>
+<td>${service_name}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${result}</td>
+<td>Run</td>
+<td>service ${service_name} status</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>@{result1}</td>
+<td>Run Keyword And Ignore Error</td>
+<td>Should Contain</td>
+<td>${result}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>running</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>@{result2}</td>
+<td>Run Keyword And Ignore Error</td>
+<td>Should Not Contain</td>
+<td>${result}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>not</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Should Be True</td>
+<td>'@{result1}[0]'=='PASS' and '@{result2}[0]'=='PASS'</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Wait for Service Stop By Times">Wait for Service Stop By Times</a></td>
+<td>[Arguments]</td>
+<td>${service_name}</td>
+<td>${times}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Wait Until Keyword Succeeds</td>
+<td>${times}</td>
+<td>2s</td>
+<td>Check Service Stop</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${service_name}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Check Service Stop For Linux">Check Service Stop For Linux</a></td>
+<td>[Arguments]</td>
+<td>${service_name}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${result}</td>
+<td>Run</td>
+<td>service ${service_name} status</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>@{result1}</td>
+<td>Run Keyword and Ignore Error</td>
+<td>Should Contain</td>
+<td>${result}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>is not running</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>@{result2}</td>
+<td>Run Keyword and Ignore Error</td>
+<td>Should Contain</td>
+<td>${result}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>unused</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>@{result3}</td>
+<td>Run Keyword and Ignore Error</td>
+<td>Should Contain</td>
+<td>${result}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>is stopped</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Should Be True</td>
+<td>'@{result1}[0]'=='PASS' or '@{result2}[0]'=='PASS' or '@{result3}[0]'=='PASS'</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Check Service Stop">Check Service Stop</a></td>
+<td>[Arguments]</td>
+<td>${service_name}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Set OS Environment Var</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Run Keyword If</td>
+<td>'%{OS_NAME}'=='linux'</td>
+<td>Check Service Stop For Linux</td>
+<td>${service_name}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${result}</td>
+<td>Run Keyword If</td>
+<td>'%{OS_NAME}'=='windows'</td>
+<td>Run</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>sc query ${service_name}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Run Keyword If</td>
+<td>'%{OS_NAME}'=='windows'</td>
+<td>Should Contain</td>
+<td>${result}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>STOPPED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Wait for Service Stop">Wait for Service Stop</a></td>
+<td>[Arguments]</td>
+<td>${service_name}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Comment</td>
+<td>Wait 60s for service start</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Wait For Service Stop By times</td>
+<td>${service_name}</td>
+<td>60</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Check Service Start">Check Service Start</a></td>
+<td>[Arguments]</td>
+<td>${service_name}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Set OS Environment Var</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Run Keyword If</td>
+<td>'%{OS_NAME}'=='linux'</td>
+<td>Check Service Start for Linux</td>
+<td>${service_name}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Run Keyword If</td>
+<td>'%{OS_NAME}'=='windows'</td>
+<td>Check Service Start for Windows</td>
+<td>${service_name}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Check Service Start for Windows">Check Service Start for Windows</a></td>
+<td>[Arguments]</td>
+<td>${service_name}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${result}</td>
+<td>Run</td>
+<td>sc query ${service_name}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Should Contain</td>
+<td>${result}</td>
+<td>RUNNING</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Wait for Service Start By Times">Wait for Service Start By Times</a></td>
+<td>[Arguments]</td>
+<td>${service_name}</td>
+<td>${times}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Wait Until Keyword Succeeds</td>
+<td>${times}</td>
+<td>2s</td>
+<td>Check Service Start</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${service_name}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Wait for Service Start">Wait for Service Start</a></td>
+<td>[Arguments]</td>
+<td>${service_name}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Comment</td>
+<td>Wait 60s for service start</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Wait for Service Start By Times</td>
+<td>${service_name}</td>
+<td>60</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Set SSM_HOME From PropFile">Set SSM_HOME From PropFile</a></td>
+<td>${filestr}</td>
+<td>Get File</td>
+<td>${AGENTPROP}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${replaceline}</td>
+<td>Get Lines Containing String</td>
+<td>${filestr}</td>
+<td>USER_INSTALL_DIR</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${replaceright}</td>
+<td>Fetch From Right</td>
+<td>${replaceline}</td>
+<td>=</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Comment</td>
+<td>Check INSTALLDIR variable</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${result}</td>
+<td>Is Variable Declared</td>
+<td>INSTALLDIR</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Run Keyword If</td>
+<td>'${result}' != 'TRUE'</td>
+<td>Set Global Variable</td>
+<td>${INSTALLDIR}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>/tmp</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${filestr}</td>
+<td>Replace String</td>
+<td>${filestr}</td>
+<td>USER_INSTALL_DIR=${replaceright}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>USER_INSTALL_DIR=${INSTALLDIR}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Comment</td>
+<td>${filestr}</td>
+<td>Replace String Using Regexp</td>
+<td>${filestr}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>USER_REQUESTED_RESTART=.*</td>
+<td>USER_REQUESTED_RESTART=${RESTART}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Create File</td>
+<td>${AGENTPROP}</td>
+<td>${filestr}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Setup System Env">Setup System Env</a></td>
+<td>[Documentation]</td>
+<td colspan="3">Set INSTALLDIR by SSM_HOME on windows, and read from file on linux.</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Set OS Environment Var</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${SSM_HOME}</td>
+<td>Find SSM_HOME</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${SSM_HOME}</td>
+<td>Replace String</td>
+<td>${SSM_HOME}</td>
+<td>\\</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>/</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Set Environment Variable</td>
+<td>SSM_HOME</td>
+<td>${SSM_HOME}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Set SSM_HOME</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Start Service">Start Service</a></td>
+<td>[Arguments]</td>
+<td>${service_name}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Set OS Environment Var</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Run Keyword If</td>
+<td>'%{OS_NAME}'=='linux'</td>
+<td>run</td>
+<td>service ${service_name} start</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Run Keyword If</td>
+<td>'%{OS_NAME}'=='windows'</td>
+<td>run</td>
+<td>sc start ${service_name}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Run Keyword If</td>
+<td>'%{OS_NAME}'=='windows'</td>
+<td>Wait for Service Start</td>
+<td>${service_name}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Run Keyword If</td>
+<td>'%{OS_NAME}'=='linux'</td>
+<td>Wait for Service Start By Times</td>
+<td>${service_name}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>15s</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Stop Service">Stop Service</a></td>
+<td>[Arguments]</td>
+<td>${service_name}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Set OS Environment Var</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Run Keyword If</td>
+<td>'%{OS_NAME}'=='linux'</td>
+<td>run</td>
+<td>service ${service_name} stop</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Run Keyword If</td>
+<td>'%{OS_NAME}'=='windows'</td>
+<td>run</td>
+<td>sc stop ${service_name}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Run Keyword If</td>
+<td>'%{OS_NAME}'=='linux'</td>
+<td>Wait for Service Stop By Times</td>
+<td>${service_name}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>15</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Run Keyword If</td>
+<td>'%{OS_NAME}'=='windows'</td>
+<td>Wait for Service Stop</td>
+<td>${service_name}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Set Java Path">Set Java Path</a></td>
+<td>@{check_result}</td>
+<td>Run Keyword And Ignore Error</td>
+<td>Variable Should Exist</td>
+<td>${java_path}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Run Keyword Unless</td>
+<td>'@{check_result}[0]'=='PASS'</td>
+<td>Set Java Path Internal</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Set Java Path Internal">Set Java Path Internal</a></td>
+<td>Set OS Environment Var</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${check_result}</td>
+<td>${java_home}</td>
+<td>Run Keyword And Ignore Error</td>
+<td>Get Environment Variable</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>JAVA_HOME</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${java_home}</td>
+<td>Set Variable If</td>
+<td>'${check_result}'=='PASS'</td>
+<td>${java_home}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>'${check_result}'!='PASS'</td>
+<td>NONE</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${java_home}</td>
+<td>Replace String</td>
+<td>${java_home}</td>
+<td>\"</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${EMPTY}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${temp_java_path}</td>
+<td>Set Variable If</td>
+<td>'%{OS_NAME}'=='windows'</td>
+<td>"${java_home}${/}bin${/}java"</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>'%{OS_NAME}'!='windows'</td>
+<td>java</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Set Suite Variable</td>
+<td>${java_path}</td>
+<td>${temp_java_path}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_CopyLogToReportFolder">CopyLogToReportFolder</a></td>
+<td>[Arguments]</td>
+<td>${log_path}</td>
+<td>${testcase_name}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${check_result}</td>
+<td>Is Variable Declared</td>
+<td>REPORTFOLDER</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${report_folder}</td>
+<td>Set Variable If</td>
+<td>'${check_result}'!='FALSE'</td>
+<td>${REPORTFOLDER}${/}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${ELSE}</td>
+<td>.${/}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${target_path}</td>
+<td>Catenate</td>
+<td>SEPARATOR=</td>
+<td>${report_folder}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${testcase_name}_wrapper.log</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Copy File</td>
+<td>${log_path}</td>
+<td>${target_path}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_ToLowercaseString">ToLowercaseString</a></td>
+<td>[Arguments]</td>
+<td>${original_str}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${UPPER_CHARS}</td>
+<td>Set Variable</td>
+<td>ABCDEFGHIJKLMNOPQRSTUVWXYZ</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${LOWER_CHARS}</td>
+<td>Set Variable</td>
+<td>abcdefghijklmnopqrstuvwxyz</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${result}</td>
+<td>Set Variable</td>
+<td>${original_str}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>: FOR</td>
+<td>${index}</td>
+<td>IN RANGE</td>
+<td>0</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td>${increase_index}</td>
+<td>Evaluate</td>
+<td>int(${index})+1</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td>${upper_char}</td>
+<td>Get Substring</td>
+<td>${UPPER_CHARS}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${index}</td>
+<td>${increase_index}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td>${lower_char}</td>
+<td>Get Substring</td>
+<td>${LOWER_CHARS}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${index}</td>
+<td>${increase_index}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td>${result}</td>
+<td>Replace String</td>
+<td>${result}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${upper_char}</td>
+<td>${lower_char}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>[Return]</td>
+<td>${result}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_DeleteProcess">DeleteProcess</a></td>
+<td>[Arguments]</td>
+<td>${process_name}=NONE</td>
+<td>${process_info}=NONE</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${ext}</td>
+<td>Set Variable If</td>
+<td>'%{OS_NAME}'=='linux'</td>
+<td>sh</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>'%{OS_NAME}'=='windows'</td>
+<td>exe</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Run Keyword If</td>
+<td>'%{OS_NAME}'=='linux'</td>
+<td>ChmodBatch</td>
+<td>${deleteProc}${ext}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${cmd}</td>
+<td>Set Variable If</td>
+<td>'%{OS_NAME}'=='linux'</td>
+<td>${deleteProc}${ext} ${process_info}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>'%{OS_NAME}'!='linux' and '${process_info}'!='NONE'</td>
+<td>${deleteProc}${ext} ${process_name} ${process_info}</td>
+<td>'%{OS_NAME}'!='linux' and '${process_info}'=='NONE'</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${deleteProc}${ext} ${process_name}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${result}</td>
+<td>Run</td>
+<td>${cmd}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Find SSM_HOME">Find SSM_HOME</a></td>
+<td>${result}</td>
+<td>Is Variable Declared</td>
+<td>SSM_HOME</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>comment</td>
+<td>Avoid empty value</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${TEMP_SSM_HOME}</td>
+<td>Set Variable If</td>
+<td>'${result}'!='FALSE'</td>
+<td>${SSM_HOME}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${ELSE}</td>
+<td>${EMPTY}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${result}</td>
+<td>Set Variable If</td>
+<td>'${result}'!='FALSE' and '${TEMP_SSM_HOME}'=='${EMPTY}'</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${ELSE}</td>
+<td>${result}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>comment</td>
+<td>Get from env variable</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${SSM_HOME}</td>
+<td>Get Environment Variable</td>
+<td>SSM_HOME</td>
+<td>${EMPTY}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${alt_ssm_home_path}</td>
+<td>Run Keyword If</td>
+<td>'${result}'!='TRUE'</td>
+<td>Find SSM_HOME - Check Directory</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${ssm_home_path}</td>
+<td>Set Variable If</td>
+<td>'${result}'!='FALSE'</td>
+<td>${SSM_HOME}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${ELSE}</td>
+<td>${alt_ssm_home_path}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>[Return]</td>
+<td>${ssm_home_path}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Find SSM_HOME - Check Directory">Find SSM_HOME - Check Directory</a></td>
+<td>${alt_path1_check_result}</td>
+<td>${msg}</td>
+<td>Run Keyword And Ignore Error</td>
+<td>Directory Should Exist</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>/opt/SSM/Uninstall</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${alt_path2_check_result}</td>
+<td>${msg}</td>
+<td>Run Keyword And Ignore Error</td>
+<td>Directory Should Exist</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>C://Program Files/SSM/Uninstall</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${alt_path3_check_result}</td>
+<td>${msg}</td>
+<td>Run Keyword And Ignore Error</td>
+<td>Directory Should Exist</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>C://Program Files (x86)/SSM/Uninstall</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${alt_path4_check_result}</td>
+<td>${msg}</td>
+<td>Run Keyword And Ignore Error</td>
+<td>Directory Should Exist</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>C://tmp/Uninstall</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${default_ssm_home}</td>
+<td>Set Variable If</td>
+<td>'%{OS_NAME}'=='linux'</td>
+<td>/opt/SSM</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>'%{OS_NAME}'!='linux'</td>
+<td>C://tmp/</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${ssm_home_path}</td>
+<td>Set Variable If</td>
+<td>'${alt_path1_check_result}'=='PASS'</td>
+<td>/opt/SSM/</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>'${alt_path2_check_result}'=='PASS'</td>
+<td>C://Program Files/SSM/</td>
+<td>'${alt_path3_check_result}'=='PASS'</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>C://Program Files (x86)/SSM/</td>
+<td>'${alt_path4_check_result}'=='PASS'</td>
+<td>C://tmp/</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>'${alt_path4_check_result}'!='PASS'</td>
+<td>${default_ssm_home}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>[Return]</td>
+<td>${ssm_home_path}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Translate Check Result - A">Translate Check Result - A</a></td>
+<td>[Arguments]</td>
+<td>@{checkResult}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${result}</td>
+<td>Set Variable If</td>
+<td>'@{checkResult}[0]'=='PASS'</td>
+<td>TRUE</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>'@{checkResult}[0]'!='PASS'</td>
+<td>FALSE</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>[Return]</td>
+<td>${result}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Translate Check Result">Translate Check Result</a></td>
+<td>[Arguments]</td>
+<td>${checkResult}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${result}</td>
+<td>Set Variable If</td>
+<td>'${checkResult}'=='PASS'</td>
+<td>TRUE</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>'${checkResult}'!='PASS'</td>
+<td>FALSE</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>[Return]</td>
+<td>${result}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Reboot OS">Reboot OS</a></td>
+<td>Set OS Environment Var</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${cmd}</td>
+<td>Set Variable If</td>
+<td>'%{OS_NAME}'=='windows'</td>
+<td>common${/}scripts${/}shutdown.exe -r -t 5 -f</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>'%{OS_NAME}'=='linux'</td>
+<td>reboot</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Run</td>
+<td>${cmd}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Sleep</td>
+<td>30s</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Replace Installation Path">Replace Installation Path</a></td>
+<td>[Arguments]</td>
+<td>${prop_file}</td>
+<td>${location}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${filestr}</td>
+<td>Get File</td>
+<td>${prop_file}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${replaceline}</td>
+<td>Get Lines Containing String</td>
+<td>${filestr}</td>
+<td>USER_INSTALL_DIR</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${replaceright}</td>
+<td>Fetch From Right</td>
+<td>${replaceline}</td>
+<td>=</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${filestr}</td>
+<td>Replace String</td>
+<td>${filestr}</td>
+<td>USER_INSTALL_DIR=${replaceright}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>USER_INSTALL_DIR=${location}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>Create File</td>
+<td>${prop_file}</td>
+<td>${filestr}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Get Count of Array">Get Count of Array</a></td>
+<td>[Arguments]</td>
+<td>@{list}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${count}</td>
+<td>Evaluate</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>: FOR</td>
+<td>${var}</td>
+<td>IN</td>
+<td>@{list}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td>${count}</td>
+<td>Evaluate</td>
+<td>int(${count})+1</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>[Return]</td>
+<td>${count}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Add One If Result is Pass">Add One If Result is Pass</a></td>
+<td>[Arguments]</td>
+<td>${count}</td>
+<td>@{check_result}</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${temp_val}</td>
+<td>Set Variable If</td>
+<td>'@{check_result}[0]'=='PASS'</td>
+<td>1</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>'@{check_result}[0]'!='PASS'</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${result}</td>
+<td>Evaluate</td>
+<td>int(${count})+int(${temp_val})</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>[Return]</td>
+<td>${result}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Get Suite Directory">Get Suite Directory</a></td>
+<td>${suite_file_name}</td>
+<td>Fetch From Right</td>
+<td>${SUITE SOURCE}</td>
+<td>${/}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${suite_directory}</td>
+<td>Replace String</td>
+<td>${SUITE SOURCE}</td>
+<td>${suite_file_name}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>${EMPTY}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>[Return]</td>
+<td>${suite_directory}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_Is OS Ubuntu">Is OS Ubuntu</a></td>
+<td>Set OS Environment Var</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${output}</td>
+<td>Run Keyword If</td>
+<td>'%{OS_NAME}'=='linux'</td>
+<td>Run</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>cat /etc/issue</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>@{check_issue_result}</td>
+<td>Run Keyword And Ignore Error</td>
+<td>Should Contain</td>
+<td>${output}</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>Ubuntu</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${result}</td>
+<td>Set Variable If</td>
+<td>'@{check_issue_result}[0]'=='PASS'</td>
+<td>TRUE</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>'@{check_issue_result}[0]'!='PASS'</td>
+<td>FALSE</td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>[Return]</td>
+<td>${result}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"><a name="keyword_SyncTime">SyncTime</a></td>
+<td>Set OS Environment Var</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${output}</td>
+<td>Run Keyword If</td>
+<td>'%{OS_NAME}' == 'linux'</td>
+<td>Run</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>service ntpd stop</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${output}</td>
+<td>Run Keyword If</td>
+<td>'%{OS_NAME}' == 'linux'</td>
+<td>Run</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>ntpdate time.windows.com</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>${output}</td>
+<td>Run Keyword If</td>
+<td>'%{OS_NAME}' == 'windows'</td>
+<td>Run</td>
+</tr>
+<tr>
+<td class="name"></td>
+<td>...</td>
+<td>w32tm /resync</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="name"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+</body>
+</html>
